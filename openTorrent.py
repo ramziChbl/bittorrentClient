@@ -1,4 +1,4 @@
-import asyncio, bencode, pprint, json
+import asyncio, bencode, pprint, json, requests, hashlib
 
 def describeTorrentDict(decodedDict):
 	dictKeys = decodedDict.keys()
@@ -58,21 +58,29 @@ def readTorrentFile(filePath):
 	print('Reading file : ' + filePath)
 	decodedDict = bencode.bread(filePath)
 	describeTorrentDict(decodedDict)
-	
 	print()
+	return decodedDict
 
-#readTorrentFile('file.torrent')
-readTorrentFile('file2.torrent')
+#metainfo = readTorrentFile('file.torrent')
 
-'''
-pp = pprint.PrettyPrinter()
 
-torrent = bencode.bread('file2.torrent')
-print(torrent.keys())
-print(torrent['announce'])
-print(torrent['announce-list'])
-print(torrent['comment'])
-print(torrent['info']['name'])
-print(torrent['info']['length'])
-print(torrent['info']['piece length'])
-'''
+metainfo = readTorrentFile('file2.torrent')
+infohash = hashlib.sha1(bencode.encode(metainfo['info']))
+hashstring = infohash.digest()
+
+getParameters = {
+	'info_hash' : hashstring,
+	'peer_id' : 'hellohellohellohello',
+	'port' : '8992',
+	'uploaded' : '0',
+	'downloaded' : '0',
+	'left' : str(metainfo['info']['length'])
+}
+
+print(getParameters)
+
+response = requests.get(
+    'https://torrent.ubuntu.com/announce',
+    params=getParameters,
+)
+print(response)
