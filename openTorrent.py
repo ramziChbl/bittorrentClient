@@ -1,4 +1,5 @@
 import asyncio, bencode, pprint, json, requests, hashlib
+from torrentFile import TorrentFile
 
 def describeTorrentDict(decodedDict):
 	dictKeys = decodedDict.keys()
@@ -61,10 +62,17 @@ def readTorrentFile(filePath):
 	print()
 	return decodedDict
 
+tf = TorrentFile('file2.torrent')
+tf.describe()
+
+
+tf = TorrentFile('file.torrent')
+tf.describe()
 #metainfo = readTorrentFile('file.torrent')
 
-
+'''
 metainfo = readTorrentFile('file2.torrent')
+
 infohash = hashlib.sha1(bencode.encode(metainfo['info']))
 hashstring = infohash.digest()
 
@@ -84,5 +92,9 @@ response = requests.get(
     params=getParameters,
 )
 print(response)
-print(response.content)
-print(bencode.decode(response.content))
+#print(response.content)
+pp = pprint.PrettyPrinter()
+pp.pprint(bencode.decode(response.content))
+#print(bencode.decode(response.content))
+
+'''
