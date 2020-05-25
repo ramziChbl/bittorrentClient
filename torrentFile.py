@@ -7,7 +7,7 @@ class TorrentFile():
 
 		decodedDict = bencode.bread(filePath)
 		dictKeys = decodedDict.keys()
-		requiredKeys = ['announce', 'info', 'test']
+		requiredKeys = ['announce', 'info']
 
 		# check if torrent file includes all required keys
 		assert  all(elem in dictKeys  for elem in requiredKeys), "Torrent File required key missing"
