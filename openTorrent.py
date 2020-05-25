@@ -84,3 +84,5 @@ response = requests.get(
     params=getParameters,
 )
 print(response)
+print(response.content)
+print(bencode.decode(response.content))
