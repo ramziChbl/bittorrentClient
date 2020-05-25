@@ -1,45 +1,43 @@
-import bencode, pprint
+import bencode, pprint, hashlib
 
 class TorrentFile():
 	"""docstring for torrentFile"""
 	def __init__(self, filePath):
 		self.filePath = filePath
+
 		decodedDict = bencode.bread(filePath)
 		dictKeys = decodedDict.keys()
+		requiredKeys = ['announce', 'info', 'test']
+
+		# check if torrent file includes all required keys
+		assert  all(elem in dictKeys  for elem in requiredKeys), "Torrent File required key missing"
 		
 		if 'announce' in dictKeys:
-			#print('  announce = ' + decodedDict['announce'])
 			self.announce = decodedDict['announce']
 
 		if 'announce-list' in dictKeys:
-			#print('  announce-list = ' + str(decodedDict['announce-list']))
 			self.announceList = decodedDict['announce-list']
 
 		if 'creation date' in dictKeys:
-			#print('  creation date = ' + str(decodedDict['creation date']))
 			self.creationDate = decodedDict['creation date']
 
 		if 'created by' in dictKeys:
-			#print('  created by = ' + decodedDict['created by'])
 			self.createdBy = decodedDict['created by']
 
 		if 'comment' in dictKeys:
-			#print('  comment = ' + decodedDict['comment'])
 			self.comment = decodedDict['comment']
 
 
 		if 'info' in dictKeys:
 			self.info = decodedDict['info']
-			#self.name = decodedDict['info']['name']
-			#self.pieceLength = decodedDict['info']['piece length']
-			#self.pieces = decodedDict['info']['pieces']
+			hashObj = hashlib.sha1(bencode.encode(self.info))
+			self.infoHash = hashObj.digest()
+
 			if 'files' in self.info.keys():
 				self.multiFile = True
-				#self.files = decodedDict['info']['files']
 				
 			else:
 				self.multiFile = False
-				#self.length = decodedDict['info']['length']
 
 	def describe(self):
 		attributes = vars(self)
@@ -65,6 +63,8 @@ class TorrentFile():
 		if 'comment' in dictKeys:
 			print('  comment = ' + attributes['comment'])
 
+		if 'infoHash' in dictKeys:
+			print('  hash = ' + str(attributes['infoHash']))
 
 		if 'info' in dictKeys:
 			print('  info : ', end='')
