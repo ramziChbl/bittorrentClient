@@ -20,16 +20,22 @@ def extractPeers(byteString):
 client = Client()
 
 tf2 = TorrentFile('torrents/file2.torrent')
+tf2.describe()
+
 ubuntuTracker = Tracker(tf2.announce)
-#tf2.describe()
 ubuntuTracker.connect(tf2, client)
 print()
 
 
 tf = TorrentFile('torrents/CentOS-8.1.1911-x86_64-boot.torrent')
+tf.describe()
+
 centosTracker = Tracker(tf.announce)
-#tf.describe()
 centosTracker.connect(tf, client)
+
+ubuntuTracker.describe()
+print()
+centosTracker.describe()
 '''
 getParameters = {
 	'info_hash' : tf2.infoHash,

@@ -61,9 +61,24 @@ class Tracker():
 	def describe(self):
 		attributes = vars(self)
 		print('Tracker Keys :', end='')
-		for key in attributes:
+		for key in attributes.keys():
 			print(key, end=', ')
 		print()
 
+		for k,v in attributes.items():
+			if k == 'peers':
+				print('  - ' + k + ' : ' + str(len(v)))
+				peerNumber = 1
+				for peer in v:
+					print('      ', end='')
+					for peerKey, peerValue in peer.items():
+						print(peerKey + ' = ' + str(peerValue), end='\t')
+					print()
+					peerNumber += 1
+					if (peerNumber > 5):
+						print('        ...')
+						break
+					
+			else:
+				print('  - ' + k + ' = ' + str(v))
 
-	
