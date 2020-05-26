@@ -2,6 +2,18 @@ import bencode, pprint, hashlib
 
 class TorrentFile():
 	"""docstring for torrentFile"""
+	# announce (required)
+	# announce-list
+	# createdBy
+	# creationDate
+	# comment
+	# info (required)
+	# infoHash
+	# fileSize
+	# left
+	# downloaded
+	# uploaded
+
 	def __init__(self, filePath):
 		self.filePath = filePath
 
@@ -39,9 +51,23 @@ class TorrentFile():
 			else:
 				self.multiFile = False
 
+		self.fileSize = self.calculateSize()
+		self.left = self.fileSize
+		self.downloaded = 0
+		self.uploaded = 0
+
+	def calculateSize(self):
+		if(self.multiFile):
+			l = 0
+			for file in self.info['files']:
+				l += file['length']
+			return l
+		else:
+			return self.info['length']
+
 	def describe(self):
 		attributes = vars(self)
-		print('Keys :', end='')
+		print('Metainfo Keys :', end='')
 		for key in attributes:
 			print(key, end=', ')
 		print()

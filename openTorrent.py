@@ -1,7 +1,9 @@
 import asyncio, bencode, pprint, json, requests, hashlib
 from torrentFile import TorrentFile
+from tracker import Tracker
+from client import Client
 
-
+'''
 def extractPeers(byteString):
 	peer = {}
 	peers = []
@@ -13,18 +15,26 @@ def extractPeers(byteString):
 		peers.append(peer)
 		i += 6
 	return peers
+'''
 
+client = Client()
 
 tf2 = TorrentFile('torrents/file2.torrent')
+ubuntuTracker = Tracker(tf2.announce)
 #tf2.describe()
+ubuntuTracker.connect(tf2, client)
+print()
 
 
 tf = TorrentFile('torrents/CentOS-8.1.1911-x86_64-boot.torrent')
+centosTracker = Tracker(tf.announce)
 #tf.describe()
+centosTracker.connect(tf, client)
+'''
 getParameters = {
 	'info_hash' : tf2.infoHash,
-	'peer_id' : 'hellohellohellohello',
-	'port' : '8992',
+	'peer_id' : client.peerId,
+	'port' : client.port,
 	'uploaded' : '0',
 	'downloaded' : '0',
 	'left' : tf2.info['length']# str(metainfo['info']['length'])
@@ -42,8 +52,7 @@ print(response.url)
 decodedContent = bencode.decode(response.content)
 print(decodedContent)
 print(type(decodedContent['peers']))
-#pp = pprint.PrettyPrinter()
-#pp.pprint(decodedContent)
+
 
 getParameters['info_hash'] = tf.infoHash
 l = 0
@@ -64,3 +73,4 @@ if isinstance(decodedContent['peers'], bytes):
 	peers = extractPeers(decodedContent['peers'])
 	print(peers)
 #print(decodedContent['peers'])
+'''
