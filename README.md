@@ -5,3 +5,7 @@ Objectives:
   - Read and parse torrent file. Done
   - Get peers from tracker.
   - Download the file from peers.
+
+ ## TODO
+  - Connect to peers
+  - Get pieces from peers
