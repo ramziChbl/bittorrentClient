@@ -25,7 +25,7 @@ def outputsToOpen(outputfileNumber):
 		os.remove('output{:02}.txt'.format(n))
 	openedPorts.close()
 
-outputsToOpen(50)
+outputsToOpen(peerToOutputs())
 
 
 
