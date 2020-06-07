@@ -1,0 +1,4 @@
+# Nmap 7.60 scan initiated Sun Jun  7 12:03:19 2020 as: nmap -oG output.txt -p 51413 67.241.66.89
+Host: 67.241.66.89 (cpe-67-241-66-89.twcny.res.rr.com)	Status: Up
+Host: 67.241.66.89 (cpe-67-241-66-89.twcny.res.rr.com)	Ports: 51413/open/tcp//unknown///
+# Nmap done at Sun Jun  7 12:03:20 2020 -- 1 IP address (1 host up) scanned in 0.59 seconds

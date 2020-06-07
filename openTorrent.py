@@ -22,8 +22,12 @@ print(handshakeMessage)
 print(len(handshakeMessage))
 peers = seedsTracker.peers
 
+print('Peers from Ubuntu tracker :')
+print('ip,port')
+
 for peer in peers:
-	print("nmap -p {} {}".format( peer['port'], peer['ip']))
+	#print("nmap -p {} {}".format( peer['port'], peer['ip']))
+	print('{},{}'.format(peer['ip'], peer['port']))
 
 """
 tf2 = TorrentFile('torrents/file2.torrent')
