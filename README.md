@@ -7,8 +7,8 @@ Objectives:
   - Download the file from peers.
 
  ## Main Steps
-  - [X] Parse torrent file
-  - [X] Connect to tracker
-  - [X] Get Peers from tracker
+  - [x] Parse torrent file
+  - [x] Connect to tracker
+  - [x] Get Peers from tracker
   - [ ]Connect to peers
   - [ ]Get pieces from peers
