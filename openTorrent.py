@@ -8,6 +8,11 @@ client = Client()
 seedsTorrent = TorrentFile('torrents/file2.torrent')
 seedsTorrent.describe()
 
+centosTorrent = TorrentFile('torrents/CentOS-8.1.1911-x86_64-boot.torrent')
+centosTorrent.describe()
+
+"""
+
 seedsTracker = Tracker(seedsTorrent.announce)
 seedsTracker.connect(seedsTorrent, client)
 print()
@@ -15,8 +20,7 @@ print()
 seedsTracker.describe()
 
 infoHash = seedsTorrent.infoHash
-#byte = "BitTorrent protocol\0\0\0\0\0\0\0\0".encode()
-#print(byte)
+
 handshakeMessage = str(19).encode() + "BitTorrent protocol\x00\x00\x00\x00\x00\x00\x00\x00".encode() + infoHash + client.peerId.encode()
 print(handshakeMessage)
 print(len(handshakeMessage))
@@ -28,7 +32,7 @@ print('ip,port')
 for peer in peers:
 	#print("nmap -p {} {}".format( peer['port'], peer['ip']))
 	print('{},{}'.format(peer['ip'], peer['port']))
-
+"""
 """
 tf2 = TorrentFile('torrents/file2.torrent')
 tf2.describe()
