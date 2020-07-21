@@ -2,13 +2,13 @@ import bencode, pprint, hashlib
 
 class TorrentFile():
 	"""docstring for torrentFile"""
-	# announce (required)
-	# announce-list
-	# createdBy
-	# creationDate
-	# comment
-	# info (required)
-	# infoHash
+	# announce (required) : The announce URL of the tracker (string)
+	# announce-list : (optional) this is an extention to the official specification, offering backwards-compatibility. (list of lists of strings)
+	# createdBy : (optional) name and version of the program used to create the .torrent (string)
+	# creationDate : (optional) the creation time of the torrent, in standard UNIX epoch format
+	# comment : (optional) free-form textual comments of the author (string)
+	# info (required) : a dictionary that describes the file(s) of the torrent.
+	# (self added) infoHash
 	# fileSize
 	# left
 	# downloaded
@@ -42,6 +42,7 @@ class TorrentFile():
 
 		if 'info' in dictKeys:
 			self.info = decodedDict['info']
+			print(self.info.keys())
 			hashObj = hashlib.sha1(bencode.encode(self.info))
 			self.infoHash = hashObj.digest()
 
@@ -100,7 +101,7 @@ class TorrentFile():
 
 			print('    name = ' + attributes['info']['name'])
 			print('    piece length = ' + str(attributes['info']['piece length']))
-			print('    pieces number = ' + str(len(attributes['info']['pieces'])))
+			print('    pieces number = ' + str(len(attributes['info']['pieces']) // 20))
 			if self.multiFile:
 				print('    Multi-file')
 				print('    Files :')
@@ -112,10 +113,8 @@ class TorrentFile():
 					print()
 				
 				pp = pprint.PrettyPrinter()
-				#pp.pprint(attributes['info']['files'])
 			else:
 				print('    Single-file')
 				print('    length = ' + str(attributes['info']['length']))
-				#pp = pprint.PrettyPrinter()
-				#pp.pprint(attributes['info']['pieces'])
 		pass
+

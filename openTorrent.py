@@ -8,6 +8,8 @@ client = Client()
 seedsTorrent = TorrentFile('torrents/file2.torrent')
 seedsTorrent.describe()
 
+print(seedsTorrent.info['pieces'][1])
+
 centosTorrent = TorrentFile('torrents/CentOS-8.1.1911-x86_64-boot.torrent')
 centosTorrent.describe()
 
