@@ -76,9 +76,11 @@ class Tracker():
 						print(peerKey + ' = ' + str(peerValue), end='\t')
 					print()
 					peerNumber += 1
+					'''
 					if (peerNumber > 5):
 						print('        ...')
 						break
+					'''
 					
 			else:
 				print('  - ' + k + ' = ' + str(v))

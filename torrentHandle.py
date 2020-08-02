@@ -19,7 +19,7 @@ class TorrentHandle():
 		self.currentTrackerIndex = 0
 		self.currentTracker = Tracker(self.torrentInfo)
 
-	def getPeersFromTracker(self):
+	def connectToTracker(self):
 		self.currentTracker.connect(self.torrentInfo, self.client)
 
 	def describeTorrent(self):
