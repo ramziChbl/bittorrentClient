@@ -1,5 +1,6 @@
 import socket, bencode, struct
 from peer import Peer
+
 messageType = {
 	0 : 'choke',
 	1 : 'unchoke',
@@ -32,7 +33,6 @@ def parseMessage(message):
 		'id' : message[4]
 	}
 
-
 	messageDict['payload'] = message[5:messageDict['length'] + 5]
 	#if messageDict['payload'] == b'':
 
@@ -42,22 +42,25 @@ def parseMessage(message):
 		
 	return messageDict
 
-
+'''
 handshakeMessage = b'\x13BitTorrent protocol\x00\x00\x00\x00\x00\x00\x00\x00\xc4O\x93\x1b\x1a9\x86\x85\x12B\xd7U\xd0\xacF\xe9\xfa<]2hellohellohellohello'
+'''
+infoHash = b"@\xd6\x02/y\x9e\x9d\xe2'\xd9\xc0\xb5\n\x08O\xe7\xd0\x06\xd6\xfd"
+
+handshakeMessage = b'\x13BitTorrent protocol\x00\x00\x00\x00\x00\x00\x00\x00' + infoHash + b'hellohellohellohello'
+
 
 HANDSHAKE_SIZE = 68
 
-TCP_IP = '158.69.55.241'
-TCP_IP = '5.79.77.65'
-#TCP_PORT = 51413
-TCP_PORT = 50670
+TCP_IP = '206.217.129.233'
+TCP_PORT = 6881
 
-peer = Peer('5.79.77.65', 50670)
+peer = Peer(TCP_IP, TCP_PORT)
  
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 s.connect((peer.ip, peer.port))
-#s.connect((TCP_IP, TCP_PORT))
+
 print('Connected')
 
 s.send(handshakeMessage)
@@ -68,49 +71,55 @@ print(data)
 print(len(data))
 print('Received data')
 
-message = s.recv(512)
+message = s.recv(5) # receive length (4 bytes) + id (1 byte)
 print('Received message')
 print(message)
 msgDict = parseMessage(message)
 
-payload = s.recv(msgDict['length'])
-print('Received payload')
-#print(payload)
-#print(len(payload))
-msgDict['payload'] = payload
-print(msgDict)
+if msgDict['id'] == 5: # received bitfield message
+	payload = s.recv(msgDict['length'])
+	print('Received payload')
+	#print(payload)
+	print(len(payload))
+	msgDict['payload'] = payload
+	print(msgDict)
 
-peer.saveBitfield(msgDict['payload'])
+	peer.saveBitfield(msgDict['payload'])
 
 peer.describePeer()
-'''
 
-unchokeMsg = b'\x00\x00\x00\x01\x02'
+# Send interested message
+#interested: <len=0001(4 bytes)><id=2(1 bytes)>
+interrestedMsg = b'\x00\x00\x00\x01\x02'
 print('Sending interested message')
-s.send(unchokeMsg)
-message = s.recv(512)
+s.send(interrestedMsg)
+
+print('Waiting for reply')
+message = s.recv(128)
 print(message)
 
-requestMsg = b'\x00\x00\x00\x0D\x06\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80'
+
+
+
+# Send request for first piece
+#request: <len=0013><id=6><index(4 bytes)><begin(4 bytes)><length(4 bytes)>
+requestMsg = b'\x00\x00\x00\x0D\x06\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x80\x00'
 print('Sending request message')
 s.send(requestMsg)
 
 print('Waiting for reply')
-message = s.recv(512)
-print(message)
-
-
-#print('Received message')
-#print(message)
-
- 
-#print("Received data:")
-#print(parseHandshake(data))
-
-#print('Received message')
-#print(message)
-#print(parseMessage(message))
+#message = s.recv(32768)
+data = 0
+n = 32768
+while data < n:
+	packet = s.recv(1024)
+	print(packet)
+	if not packet:
+		print('Nada')
+		break
+	data += len(packet)
+	print(data)
 
 s.close()
 print('Connection closed')
-'''
+#print(message)

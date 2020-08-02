@@ -67,6 +67,7 @@ class Tracker():
 
 		for k,v in attributes.items():
 			if k == 'peers':
+				self.peers = v
 				print('  - ' + k + ' : ' + str(len(v)))
 				peerNumber = 1
 				for peer in v:
@@ -81,4 +82,8 @@ class Tracker():
 					
 			else:
 				print('  - ' + k + ' = ' + str(v))
+
+	def createNmapCommands(self):
+		for peer in self.peers:
+			print('nmap {} -p {}'.format(peer['ip'], peer['port']))
 

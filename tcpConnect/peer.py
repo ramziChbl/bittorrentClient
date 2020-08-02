@@ -13,11 +13,12 @@ class Peer():
 
 	def saveBitfield(self, bitfield):
 		self.pieces = bitarray()
-		self.pieces.frombytes(bitfield)
+		self.pieces.frombytes(bitfield) # Bitfield corresponding to pieces that the peer has
 		
 
 	def describePeer(self):
 		print('{} : {} -> {}...'.format(self.ip, self.port, self.pieces[:10]))
+
 
 
 	

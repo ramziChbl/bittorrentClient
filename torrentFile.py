@@ -8,7 +8,7 @@ class TorrentFile():
 	# creationDate : (optional) the creation time of the torrent, in standard UNIX epoch format
 	# comment : (optional) free-form textual comments of the author (string)
 	# info (required) : a dictionary that describes the file(s) of the torrent.
-	# (self added) infoHash
+	# -> (self added) infoHash
 	# fileSize
 	# left
 	# downloaded
@@ -117,4 +117,11 @@ class TorrentFile():
 				print('    Single-file')
 				print('    length = ' + str(attributes['info']['length']))
 		pass
+
+
+	def getSize(this):
+		if this.multiFile:
+			return this.info['piece length'] * len(this.info['pieces']) // 20
+		else:
+			return this.info['length']
 

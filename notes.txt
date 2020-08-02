@@ -1,0 +1,17 @@
+Hello, these are some notes on the global advancement of the project plus some ideas and thoughts on where to head and how to achieve it.
+
+Mid-term goals : Build a bittorrent downloader
+Long-term goals : Intergrate the bittorrent downloader to a platrform that allows a basic client-server download with torrent files.
+This platform will act as a middleman between the client and the torrent files he wishes to download. the platform will downlaod and cache the torrent file with the Bittorent Protocol and forward it to the requester.
+I am actually considering to forwarding methods:
+    - Download the file in it entirety and then forward it. (The easy way)
+    - Dynamic download (idk about the name) : something similar to how Mega works.
+
+I started with a thorough documentation on the Bittorrent protocol.
+# Relevant resources:
+    - Bittorrent Protocol Specification : https://wiki.theory.org/index.php/BitTorrentSpecification
+    - Some videos and blogs that I bookmarked.
+
+
+# Project Overview
+The
