@@ -2,8 +2,8 @@ import requests, bencode
 
 class Tracker():
 	"""docstring for Tracker"""
-	def __init__(self, torrentInfo):
-		self.url = torrentInfo.announce
+	def __init__(self, url):
+		self.url = url
 		self.peers = {}
 
 
