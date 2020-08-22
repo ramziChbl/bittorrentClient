@@ -45,15 +45,17 @@ def parseMessage(message):
 '''
 handshakeMessage = b'\x13BitTorrent protocol\x00\x00\x00\x00\x00\x00\x00\x00\xc4O\x93\x1b\x1a9\x86\x85\x12B\xd7U\xd0\xacF\xe9\xfa<]2hellohellohellohello'
 '''
-infoHash = b"@\xd6\x02/y\x9e\x9d\xe2'\xd9\xc0\xb5\n\x08O\xe7\xd0\x06\xd6\xfd"
+#infoHash = b"@\xd6\x02/y\x9e\x9d\xe2'\xd9\xc0\xb5\n\x08O\xe7\xd0\x06\xd6\xfd"
+#infoHash = b'\\\xed\x84.t\tH\x99-\xc8\xc9\xc0\xbfU\x10\x13\\)\x8eM'
+infoHash = b'\xf8\xb2`\xa6\xd6\x8ft[\xca`+\xa0lW\xf8\xfaE\xbf\xe6I'
 
 handshakeMessage = b'\x13BitTorrent protocol\x00\x00\x00\x00\x00\x00\x00\x00' + infoHash + b'hellohellohellohello'
 
 
 HANDSHAKE_SIZE = 68
 
-TCP_IP = '206.217.129.233'
-TCP_PORT = 6881
+TCP_IP = '114.122.103.114'
+TCP_PORT = 22611
 
 peer = Peer(TCP_IP, TCP_PORT)
  
@@ -87,6 +89,7 @@ if msgDict['id'] == 5: # received bitfield message
 	peer.saveBitfield(msgDict['payload'])
 
 peer.describePeer()
+'''
 
 # Send interested message
 #interested: <len=0001(4 bytes)><id=2(1 bytes)>
@@ -123,3 +126,4 @@ while data < n:
 s.close()
 print('Connection closed')
 #print(message)
+'''

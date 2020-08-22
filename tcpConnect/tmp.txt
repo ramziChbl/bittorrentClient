@@ -1,0 +1,200 @@
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Nmap scan report for 217-208-198-205-no2203.tbcn.telia.com (217.208.198.205)
+Host is up (0.12s latency).
+
+PORT      STATE    SERVICE
+50993/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.46 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Nmap scan report for ky3he4ik.dev (193.38.54.97)
+Host is up (0.088s latency).
+
+PORT      STATE    SERVICE
+51213/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 1.37 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Nmap scan report for c-73-253-112-72.hsd1.ma.comcast.net (73.253.112.72)
+Host is up (0.16s latency).
+
+PORT      STATE    SERVICE
+51213/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 1.97 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Nmap scan report for 212095022207.public.telering.at (212.95.22.207)
+Host is up (0.11s latency).
+
+PORT      STATE    SERVICE
+16816/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 1.45 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:04 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for ip-36.cifra1.ru (91.143.44.36)
+Host is up (0.12s latency).
+
+PORT      STATE  SERVICE
+14812/tcp closed unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.07 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for ti0185a400-4312.bb.online.no (88.90.47.247)
+Host is up (0.11s latency).
+
+PORT      STATE  SERVICE
+16816/tcp closed unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 3.03 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for 79-117-86-85.rdsnet.ro (79.117.86.85)
+Host is up (0.16s latency).
+
+PORT     STATE    SERVICE
+6855/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.03 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for 172.83.40.113
+Host is up (0.26s latency).
+
+PORT      STATE  SERVICE
+42787/tcp closed unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 0.71 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for p5dd3e0cc.dip0.t-ipconnect.de (93.211.224.204)
+Host is up (0.089s latency).
+
+PORT      STATE    SERVICE
+51213/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.96 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for louis.weebl.me (80.100.15.186)
+Host is up (0.089s latency).
+
+PORT      STATE    SERVICE
+50212/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 3.87 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for c-73-54-127-111.hsd1.fl.comcast.net (73.54.127.111)
+Host is up (0.21s latency).
+
+PORT     STATE    SERVICE
+6824/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.46 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for gyiki2.fatav.hu (212.108.197.140)
+Host is up (0.11s latency).
+
+PORT      STATE    SERVICE
+55843/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 0.29 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Nmap scan report for 70.191.220.177.static.copel.net (177.220.191.70)
+Host is up (0.30s latency).
+
+PORT      STATE    SERVICE
+16866/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 5.01 seconds
+
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:05 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:06 CET
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.04 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:06 CET
+Nmap scan report for static.146.71.73.50.tpa.fl.cfhcable.net (146.71.73.50)
+Host is up (0.19s latency).
+
+PORT      STATE    SERVICE
+57266/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.22 seconds
+
+
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:06 CET
+Nmap scan report for p2e5889ca.dip0.t-ipconnect.de (46.88.137.202)
+Host is up (0.10s latency).
+
+PORT      STATE    SERVICE
+51213/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2.20 seconds
+
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-20 11:06 CET
+Nmap scan report for 50709F79.static.ziggozakelijk.nl (80.112.159.121)
+Host is up (0.077s latency).
+
+PORT      STATE    SERVICE
+51213/tcp filtered unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 4.74 seconds
+

@@ -17,9 +17,9 @@ I started with a thorough documentation on the Bittorrent protocol.
 The bittorrent process can be summarized as follows:
 
 ## Extracting the torrent files metadata
-Torrent resources can be retrieved via 2 different ways
+Torrent resources can be retrieved in 2 different ways :
     1- Parsing a .torrent file
-    2- Parsing and requesting a magnet link.
+    2- Parsing and requesting a magnet link
 
 
 For now, i have only managed to do the first case.
@@ -27,3 +27,9 @@ The .torrent file contains metadata about the torrent resource that is simply a 
 The most important data provided is :
     - announce : the principal tracker url.
     - announce-list : other trackers on where
+    - ...
+
+Next step of the process is sending a request to the trackers, so that we can receive the address (IP + Port number) of the peers who have this torrent.
+The request structure is as follows: 
+	* URL of the tracker
+	* ...

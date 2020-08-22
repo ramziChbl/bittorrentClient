@@ -43,8 +43,13 @@ class TorrentHandle():
 	def extractTrackers(self):
 		self.trackerList = []
 		self.trackerList.append(self.torrentInfo.announce)
-		for trackerEntry in self.torrentInfo.announceList:
-			self.trackerList.append(trackerEntry[0])
+		if hasattr(self.torrentInfo, "announceList"):
+			for trackerEntry in self.torrentInfo.announceList:
+				self.trackerList.append(trackerEntry[0])
+
+	def switchToNextTracker(self):
+		self.currentTrackerIndex += 1
+		self.currentTracker = Tracker(self.trackerList[self.currentTrackerIndex])
 
 	def filterTrackersByProtocol(self, protocol='udp'):
 		protocolLength = len(protocol)
