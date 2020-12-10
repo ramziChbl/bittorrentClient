@@ -33,3 +33,21 @@ Next step of the process is sending a request to the trackers, so that we can re
 The request structure is as follows: 
 	* URL of the tracker
 	* ...
+
+## Magnet Links
+    xt (extract topic) : a URN formed from the content hash of a particular file. hex-encoded SHA-1 hash of the torrent file info section.
+        eg : magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a
+        Bittorrent special : xt=urn:btih:[ BitTorrent Info Hash (Hex) ]
+
+    dn (Display Name): a filename to display to the user, for convenience
+    tr (address TRacker): tracker URL for BitTorrent downloads
+        Used to obtain resources for BitTorrent downloads without a need for DHT support. The value must be URL encoded.
+        tr=http%3A%2F%2Fexample.org%2Fannounce
+
+    xl (eXact Length): size in bytes
+    xt (eXact Topic): URN containing file hash
+    ws (Web Seed): the payload data served over HTTP(S)
+    as (Acceptable Source): Web link to the file online
+    xs (eXact Source): P2P link identified by a content-hash
+    kt (Keyword Topic): a more general search, specifying keywords, rather than a particular file
+    mt (Manifest Topic): link to the metafile that contains a list of magneto (MAGMA – MAGnet MAnifest)

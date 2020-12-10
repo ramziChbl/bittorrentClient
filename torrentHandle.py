@@ -3,6 +3,7 @@ from torrentFile import TorrentFile
 from tracker import Tracker
 from client import Client
 import socket
+import time
 
 class TorrentHandle():
 	"""docstring for TorrentHandle"""
