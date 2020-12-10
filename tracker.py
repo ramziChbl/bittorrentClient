@@ -1,10 +1,11 @@
 import requests, bencode
+from peer import Peer
 
 class Tracker():
 	"""docstring for Tracker"""
 	def __init__(self, url):
 		self.url = url
-		self.peers = {}
+		self.peers = []
 
 
 	def connect(self, torrent, myClient):
@@ -19,10 +20,15 @@ class Tracker():
 		for k,v in decodedContent.items():
 			if k == 'peers':
 				if isinstance(v, list):
-					setattr(self, k, v)
+					for p in v:
+						newPeer = Peer(p['ip'], p['port'], p['peer id'])
+						#newPeer.describePeer()
+						self.peers.append(newPeer)
+					
 				else:
-					decodedPeers = self.extractEncodedPeers(v)
-					setattr(self, k, decodedPeers)
+					print('EEEEEEEEEEEEEEEEEEEEncoded')
+					#decodedPeers = self.extractEncodedPeers(v)
+					#setattr(self, k, decodedPeers)
 			else:
 				setattr(self, k, v)
 
@@ -67,20 +73,15 @@ class Tracker():
 
 		for k,v in attributes.items():
 			if k == 'peers':
-				self.peers = v
 				print('  - ' + k + ' : ' + str(len(v)))
-				peerNumber = 1
 				for peer in v:
 					print('      ', end='')
+					peer.describePeer()
+					'''
 					for peerKey, peerValue in peer.items():
 						print(peerKey + ' = ' + str(peerValue), end='\t')
-					print()
-					peerNumber += 1
 					'''
-					if (peerNumber > 5):
-						print('        ...')
-						break
-					'''
+					#print()
 					
 			else:
 				print('  - ' + k + ' = ' + str(v))
@@ -88,4 +89,3 @@ class Tracker():
 	def createNmapCommands(self):
 		for peer in self.peers:
 			print('nmap {} -p {}'.format(peer['ip'], peer['port']))
-

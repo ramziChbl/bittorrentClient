@@ -48,6 +48,9 @@ class TorrentHandle():
 			for trackerEntry in self.torrentInfo.announceList:
 				self.trackerList.append(trackerEntry[0])
 
+	def listPeers(self):
+		print(self.currentTracker.peers)
+
 	def switchToNextTracker(self):
 		self.currentTrackerIndex += 1
 		self.currentTracker = Tracker(self.trackerList[self.currentTrackerIndex])

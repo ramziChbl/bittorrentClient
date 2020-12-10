@@ -8,4 +8,5 @@ ubuntuTorrent.describeTorrent()
 ubuntuTorrent.switchToNextTracker()
 ubuntuTorrent.connectToTracker()
 ubuntuTorrent.describeTracker()
+#ubuntuTorrent.listPeers()
 
