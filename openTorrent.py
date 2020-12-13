@@ -1,5 +1,6 @@
 from client import Client
 from torrentHandle import TorrentHandle
+from downloader import Downloader
 
 client = Client()
 
@@ -8,5 +9,6 @@ ubuntuTorrent.describeTorrent()
 ubuntuTorrent.switchToNextTracker()
 ubuntuTorrent.connectToTracker()
 ubuntuTorrent.describeTracker()
-#ubuntuTorrent.listPeers()
 
+ubuntuDownloader = Downloader(ubuntuTorrent.torrentInfo, ubuntuTorrent.currentTracker.peers)
+ubuntuDownloader.extractConnectedPeers()
