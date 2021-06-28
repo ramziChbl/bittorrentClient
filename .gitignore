@@ -2,3 +2,4 @@ py38async
 tst.py
 file.torrent
 torrents/*
+__pycache__

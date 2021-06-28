@@ -12,6 +12,9 @@ class Peer():
 		self.receivedBitfield = False
 		self.sentUnchoke = False
 
+	def __str__(self):
+		return('{}:{}'.format(self.ip, self.port))
+
 	def saveBitfield(self, bitfield):
 		self.pieces = bitarray()
 		self.pieces.frombytes(bitfield) # Bitfield corresponding to pieces that the peer has

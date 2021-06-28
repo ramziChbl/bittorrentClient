@@ -11,4 +11,4 @@ ubuntuTorrent.connectToTracker()
 ubuntuTorrent.describeTracker()
 
 ubuntuDownloader = Downloader(ubuntuTorrent.torrentInfo, ubuntuTorrent.currentTracker.peers)
-ubuntuDownloader.extractConnectedPeers()
+#ubuntuDownloader.extractConnectedPeers()
